@@ -1,0 +1,39 @@
+{
+  "name": "rollup-brunch",
+  "version": "0.0.1",
+  "description": "Plugin for brunch.io that uses rollupjs for packaging.",
+  "author": "Ingo Struck (https://www.ingo-struck.de/)",
+  "homepage": "https://github.com/istr/rollup-brunch",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:istr/rollup-brunch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/istr/rollup-brunch/issues"
+  },
+  "keywords": [
+    "es6",
+    "modules",
+    "rollup",
+    "bundle",
+    "browser"
+  ],
+  "scripts": {
+    "test": "node_modules/.bin/eslint index.js && node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "rollup": "^0.24.1",
+    "rollup-plugin-babel": "^2.3.9",
+    "rollup-plugin-memory": "^1.0.0",
+    "rollup-plugin-multi-entry": "^1.1.0",
+    "source-map-support": "^0.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "chai": "^3.3.0",
+    "mocha": "^2.3.4",
+    "eslint": "^1.10.3"
+  }
+}
