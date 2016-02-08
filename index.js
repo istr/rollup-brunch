@@ -6,8 +6,9 @@ const memory = require('rollup-plugin-memory');
 class RollupCompiler {
   constructor(config) {
     if (config == null) config = {};
+    const pluginConfig = config.plugins && config.plugins.rollup || {};
     this.plugins = [
-      babel({})
+      babel(pluginConfig.babel || config.babel || {})
     ];
     this.map = !!config.sourceMaps ? 'linked' : 'none';
   }

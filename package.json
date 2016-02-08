@@ -1,6 +1,6 @@
 {
   "name": "rollup-brunch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plugin for brunch.io that uses rollupjs for packaging.",
   "author": "Ingo Struck (https://www.ingo-struck.de/)",
   "homepage": "https://github.com/istr/rollup-brunch",
