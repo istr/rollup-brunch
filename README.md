@@ -1,5 +1,5 @@
 ## rollup-brunch
-Adds [Rollup](http://http://rollupjs.org/) support to
+Adds [Rollup](http://rollupjs.org/) support to
 [brunch](http://brunch.io).
 
 ## Usage
