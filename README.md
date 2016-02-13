@@ -1,4 +1,4 @@
-## rollup-brunch
+## rollup-brunch [![Build Status](https://travis-ci.org/istr/rollup-brunch.png?branch=master)](https://travis-ci.org/istr/rollup-brunch)
 Adds [Rollup](http://rollupjs.org/) support to
 [brunch](http://brunch.io).
 
