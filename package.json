@@ -23,18 +23,19 @@
     "test": "node_modules/.bin/eslint index.js && node_modules/.bin/mocha"
   },
   "dependencies": {
-    "rollup": "^0.24.1",
-    "rollup-plugin-babel": "^2.3.9",
-    "rollup-plugin-memory": "^1.0.0",
-    "rollup-plugin-multi-entry": "^1.1.0",
-    "rollup-plugin-includepaths": "^0.1.0",
-    "source-map-support": "^0.4.0"
+	  "@babel/core": ">7.0.0",
+    "rollup": ">0.24.1",
+    "rollup-plugin-babel": ">2.3.9",
+    "rollup-plugin-virtual": ">0.0.1",
+    "rollup-plugin-multi-entry": ">1.1.0",
+    "rollup-plugin-includepaths": ">0.1.0",
+    "source-map-support": ">0.4.0"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0-beta6",
-    "babel-preset-es2015-rollup": "^1.1.1",
-    "chai": "^3.3.0",
-    "mocha": "^2.3.4",
-    "eslint": "^1.10.3"
+    "babel-eslint": ">5.0.0-beta6",
+    "babel-preset-es2015-rollup": ">1.1.1",
+    "chai": ">3.3.0",
+    "mocha": ">2.3.4",
+    "eslint": "^6.0.1"
   }
 }
