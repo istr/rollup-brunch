@@ -1,42 +1,38 @@
 'use strict';
 const rollup = require('rollup');
-const babel = require('rollup-plugin-babel');
-const memory = require('rollup-plugin-memory');
 
 class RollupCompiler {
   constructor(config) {
     if (config == null) config = {};
-    const pluginConfig = config.plugins && config.plugins.rollup || {};
-    this.plugins = [
-      babel(pluginConfig.babel || config.babel || {})
-    ];
-    this.map = !!config.sourceMaps ? 'linked' : 'none';
+    var pluginConfig = config.plugins && config.plugins.rollup || {};
+    this.config = pluginConfig;
+    this.extension = pluginConfig.extension || 'js';
+    this.plugins = pluginConfig.plugins || [];
+    delete pluginConfig.extension;
   }
 
   compile(params) {
     const path = params.path;
     const data = params.data;
+    const config = this.config;
     const plugins = this.plugins.slice();
-    plugins.push(memory({
-      contents: data
-    }));
+    plugins.unshift({
+      name: 'rollup-plugin-brunch',
+      resolveId(id) { return path; },
+      load(id) { return { code: data }; }
+    });
     return rollup.rollup({
-      entry: path,
+      input: path,
       plugins: plugins
-    }).then((bundle) => {
-      const compiled = bundle.generate({
-        format: 'umd',
-        sourceMap: this.map
-      });
-      var code;
-      if (this.map === 'linked') {
-        code = compiled.code.replace('//# sourceMappingURL=undefined.map\n', '');
-      } else {
-        code = compiled.code;
-      }
+    }).then(bundle => bundle.generate({
+      format: config.format || 'umd',
+      name: path,
+      sourcemap: config.sourcemap ? 'hidden' : false
+    })).then(({ output }) => {
+      const compiled = output[0];
       return {
-        data: code,
-        map: compiled.map.toString()
+        data: compiled.code,
+        map: compiled.map ? compiled.map.toString() : null
       };
     });
   }
