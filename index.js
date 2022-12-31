@@ -18,8 +18,8 @@ class RollupCompiler {
     const plugins = this.plugins.slice();
     plugins.unshift({
       name: 'rollup-plugin-brunch',
-      resolveId(id) { return path; },
-      load(id) { return { code: data }; }
+      resolveId() { return path; },
+      load() { return { code: data }; }
     });
     return rollup.rollup({
       input: path,
