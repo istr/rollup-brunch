@@ -20,6 +20,9 @@
     "bundle",
     "browser"
   ],
+  "engines": {
+    "node": ">=18.20.4"
+  },
   "scripts": {
     "lint": "npx eslint index.js",
     "mocha": "npx mocha",
