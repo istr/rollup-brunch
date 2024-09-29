@@ -1,6 +1,7 @@
 {
   "name": "rollup-brunch",
   "version": "0.1.0",
+  "type": "module",
   "description": "Plugin for brunch.io that uses rollupjs for packaging.",
   "author": "Ingo Struck (https://www.ingo-struck.de/)",
   "homepage": "https://github.com/istr/rollup-brunch",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "chai": "5.1.1",
     "eslint": "9.11.1",
+    "globals": "15.9.0",
     "mocha": "10.7.3"
   }
 }
