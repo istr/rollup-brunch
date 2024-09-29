@@ -1,7 +1,9 @@
 'use strict';
-const rollup = require('rollup');
 
-class RollupCompiler {
+import { rollup } from 'rollup';
+
+export class RollupCompiler {
+
   constructor(config) {
     if (config == null) config = {};
     var pluginConfig = config.plugins && config.plugins.rollup || {};
@@ -21,7 +23,7 @@ class RollupCompiler {
       resolveId() { return path; },
       load() { return { code: data }; }
     });
-    return rollup.rollup({
+    return rollup({
       input: path,
       plugins: plugins
     }).then(bundle => bundle.generate({
@@ -41,5 +43,3 @@ class RollupCompiler {
 RollupCompiler.prototype.brunchPlugin = true;
 RollupCompiler.prototype.type = 'javascript';
 RollupCompiler.prototype.extension = 'js';
-
-module.exports = RollupCompiler;
