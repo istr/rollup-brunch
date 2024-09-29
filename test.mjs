@@ -1,11 +1,11 @@
-var expect = require('chai').expect;
-var Plugin = require('./');
+import { expect } from 'chai';
+import { RollupCompiler } from './index.js';
 
 describe('Plugin', function() {
   var plugin;
 
   beforeEach(function() {
-    plugin = new Plugin({});
+    plugin = new RollupCompiler({});
   });
 
   it('is an object', function() {
@@ -34,7 +34,7 @@ describe('Plugin', function() {
   });
 
   it('compiles and produces valid result and sourcemap', function() {
-    plugin = new Plugin({plugins: {rollup: {sourcemap: true}}});
+    plugin = new RollupCompiler({plugins: {rollup: {sourcemap: true}}});
 
     var content = 'export const a = 1;';
     var expected = "(function (global, factory) {\n"
